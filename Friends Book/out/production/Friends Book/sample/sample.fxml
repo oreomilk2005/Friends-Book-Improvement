@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Arc?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Ellipse?>
+<?import javafx.scene.shape.QuadCurve?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="435.0" prefWidth="655.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+    <children>
+        <Label text="Friend's Book">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Label>
+        <HBox alignment="CENTER" prefHeight="415.0" prefWidth="655.0">
+            <children>
+                <VBox alignment="TOP_CENTER" prefHeight="471.0" prefWidth="242.0" style="-fx-background-color: #90ee90;">
+                    <children>
+                        <Label text="Add a Friend">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Label>
+                        <Label text="Basic Information">
+                            <font>
+                                <Font name="System Bold" size="12.0" />
+                            </font>
+                        </Label>
+                        <HBox prefHeight="75.0" prefWidth="250.0">
+                            <children>
+                                <VBox alignment="CENTER_RIGHT" prefHeight="75.0" prefWidth="133.0" spacing="10.0">
+                                    <children>
+                                        <Label text="Name: " />
+                                        <Label text="Preferred Pronouns:" />
+                                    </children>
+                                </VBox>
+                                <VBox alignment="CENTER_LEFT" prefHeight="75.0" prefWidth="110.0" spacing="3.0">
+                                    <children>
+                                        <TextField fx:id="textName" />
+
+                                        <ChoiceBox fx:id="choicePron" prefHeight="31.0" prefWidth="143.0" />
+                                    </children></VBox>
+                            </children>
+                        </HBox>
+                        <Label text="Contact Information">
+                            <font>
+                                <Font name="System Bold" size="12.0" />
+                            </font>
+                        </Label>
+                        <HBox prefHeight="73.0" prefWidth="250.0">
+                            <children>
+                                <VBox alignment="CENTER_RIGHT" prefWidth="125.0" spacing="10.0">
+                                    <children>
+                                        <Label text="Phone Number: " />
+                                        <Label text="Email Address: " />
+                                    </children>
+                                </VBox>
+                                <VBox alignment="CENTER_LEFT" prefWidth="125.0" spacing="5.0">
+                                    <children>
+                                        <TextField fx:id="textPhoneNum" />
+                                        <TextField fx:id="textEmail" />
+                                    </children></VBox>
+                            </children>
+                        </HBox>
+                        <Label text="Physical Attributes">
+                            <font>
+                                <Font name="System Bold" size="12.0" />
+                            </font>
+                        </Label>
+                        <HBox prefHeight="127.0" prefWidth="242.0">
+                            <children>
+                                <VBox alignment="CENTER_RIGHT" prefWidth="125.0" spacing="14.0">
+                                    <children>
+                                        <Label text="Hair Color: " />
+                                        <Label text="Hair Length: " />
+                                        <Label text="Eye Color: " />
+                                    </children>
+                                </VBox>
+                                <VBox alignment="CENTER_LEFT" prefWidth="125.0" spacing="5.0">
+                                    <children>
+                                        <ColorPicker fx:id="pickHairColor" prefHeight="31.0" prefWidth="121.0" />
+                                        <ChoiceBox fx:id="choiceHairLen" prefHeight="31.0" prefWidth="121.0" />
+                                        <ColorPicker fx:id="pickEyeColor" />
+                                    </children>
+                                </VBox>
+                            </children>
+                        </HBox>
+                        <Button mnemonicParsing="false" onAction="#addFriend" text="Add Friend">
+                            <VBox.margin>
+                                <Insets top="5.0" />
+                            </VBox.margin>
+                        </Button>
+                    </children></VBox>
+                <VBox alignment="TOP_CENTER" prefHeight="445.0" prefWidth="205.0" spacing="5.0">
+                    <children>
+                        <Label text="Friend List">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Label>
+                        <ListView fx:id="friendList" onMouseClicked="#displayFriend" prefHeight="277.0" prefWidth="205.0" />
+                        <HBox alignment="CENTER" prefHeight="28.0" prefWidth="255.0" spacing="5.0" style="-fx-background-color: #d2f8d2;">
+                            <children>
+                                <TextField fx:id="textGroup" prefHeight="31.0" prefWidth="120.0" />
+                                <Button fx:id="btnAddGroup" mnemonicParsing="false" onAction="#addGroup" prefHeight="23.0" prefWidth="107.0" text="Add Group" />
+                            </children>
+                            <VBox.margin>
+                                <Insets bottom="2.0" top="3.0" />
+                            </VBox.margin>
+                            <padding>
+                                <Insets bottom="2.0" />
+                            </padding>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="32.0" prefWidth="100.0" spacing="5.0">
+                            <children>
+                                <ChoiceBox fx:id="loadGroup" prefHeight="31.0" prefWidth="198.0" />
+                        <Button mnemonicParsing="false" onAction="#loadFriend" prefHeight="31.0" prefWidth="98.0" text="load" />
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+                <VBox alignment="TOP_CENTER" prefHeight="411.0" prefWidth="207.0" style="-fx-background-color: #ADD8E6;">
+                    <children>
+                        <Label text="Friend Profile">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Label>
+                        <Pane prefHeight="131.0" prefWidth="128.0">
+                            <children>
+                                <Rectangle fx:id="hair" arcHeight="5.0" arcWidth="5.0" height="50.0" layoutX="64.0" layoutY="76.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
+                                <Circle fill="#ffffff00" layoutX="114.0" layoutY="66.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #FFFFFF;" />
+                                <Arc fx:id="bangs" layoutX="114.0" layoutY="66.0" length="220.0" radiusX="50.0" radiusY="50.0" startAngle="-20.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
+                                <Ellipse fx:id="eyeLeft" layoutX="99.0" layoutY="82.0" radiusX="5.0" radiusY="5.0" stroke="BLACK" strokeType="INSIDE" />
+                                <Ellipse fx:id="eyeRight" layoutX="129.0" layoutY="82.0" radiusX="5.0" radiusY="5.0" stroke="BLACK" strokeType="INSIDE" />
+                                <QuadCurve controlX="4.66668701171875" controlY="21.333343505859375" endX="-4.0" fill="#ff1f1f" layoutX="110.0" layoutY="95.0" startX="12.66668701171875" stroke="BLACK" strokeType="INSIDE" />
+                            </children>
+                        </Pane>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                            <children>
+                                <VBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="123.0" spacing="10.0">
+                                    <children>
+                                        <Label text="Name: " />
+                                        <Label text="Preferred Pronouns: ">
+                                            <VBox.margin>
+                                            </VBox.margin>
+                                        </Label>
+                                        <Label text="Phone Number: ">
+                                            <VBox.margin>
+                                                <Insets />
+                                            </VBox.margin>
+                                        </Label>
+                                        <Label text="Email Adress: " />
+                                    </children>
+                                    <HBox.margin>
+                                        <Insets right="10.0" />
+                                    </HBox.margin>
+                                </VBox>
+                                <VBox prefHeight="100.0" prefWidth="85.0" spacing="10.0">
+                                    <children>
+                                        <Label fx:id="lblName" text="Unknown" />
+                                        <Label fx:id="lblPronoun" text="Unknown">
+                                            <VBox.margin>
+                                                <Insets />
+                                            </VBox.margin>
+                                        </Label>
+                                        <Label fx:id="lblPhone" text="Unknown" />
+                                        <Label fx:id="lblEmail" text="Unknown" />
+                                    </children>
+                                </VBox>
+                            </children>
+                        </HBox>
+                        <Button fx:id="btnDelete" disable="true" mnemonicParsing="false" onAction="#deleteFriend" text="Delete">
+                            <VBox.margin>
+                                <Insets top="10.0" />
+                            </VBox.margin>
+                        </Button>
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+    </children>
+</VBox>
